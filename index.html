@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agenzia Viaggi</title>
+  <link rel="icon" href="./assets/logo1.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <!-- CDN Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- CDN Fontawesome -->
+  <link href="https://cdn.jsdelivr.net/gh/eliyantosarage/font-awesome-pro@main/fontawesome-pro-6.5.1-web/css/all.min.css" rel="stylesheet">
+  <!-- CDN AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md bg-white shadow p-3" aria-label="Fourth navbar example">
+    <div class="container-fluid">
+      <a class="navbar-brand txt_main" href="#">
+        <img src="./assets/logo1.png" alt="" class="">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse font_title fw-bold show" id="navbarsExample04">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active button_hover mx-3 txt_therd fs-5" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active button_hover mx-3 txt_therd fs-5" aria-current="page" href="#">Abouts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active button_hover mx-3 txt_therd fs-5" aria-current="page" href="#">Contatti</a>
+          </li>
+        </ul>
+        <button class="btn mx-2">
+          <i class="fa-regular fa-circle-user ico-hover fs-3"></i>
+        </button>
+        <button class="btn">
+          <i class="fa-solid fa-magnifying-glass ico-hover fs-3"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <!-- Form Cerca volo -->
+  <div class="container my-5 py-5 bg_form">
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="txt_main border_second">PRENOTA IL TUO VIAGGIO</h2>
+          </div>
+          <div class="col-10 col-lg-12 shadow rounded-3 mx-auto mx-lg-0 font_title">
+            <div class="row my-4">
+              <div class="form-group col-md align-items-start flex-column"> 
+                <label for="origin" class="d-inline-flex fw-bold">DA</label> 
+                <input type="text" placeholder="Città o Aeroporto" class="form-control" id="origin" name="origin" 
+                required> 
+              </div>
+              <div class="form-group col-md align-items-start flex-column"> 
+                <label for="depart" class="d-inline-flex fw-bold">A</label> 
+                <input type="text" placeholder="Città o Aeroporto" class="form-control" id="depart" name="depart" 
+                required> 
+              </div>
+            </div>
+            <div class="row my-4">
+              <div class="form-group col-md align-items-start flex-column"> 
+                <label for="departure-date" class="d-inline-flex fw-bold">Partenza</label> 
+                <input type="date" class="form-control" id="departure-date" name="departure-date" 
+                onkeydown="return false" required> 
+              </div>
+              <div class="form-group col-md align-items-start flex-column"> 
+                <label for="return-date" class="d-inline-flex fw-bold">Ritorno</label> 
+                <input type="date" placeholder="Solo Andata" value="" 
+                onChange="this.setAttribute('value', this.value)" class="form-control" id="return-date" 
+                name="return-date"> 
+              </div>
+            </div>
+            <div class="row my-4">
+              <div class="form-group col-lg-3 align-items-start flex-column">
+                <label for="adults" class="d-inline-flex col-auto fw-bold">Adulti <span class="sublabel"> 12+ 
+                </span></label> 
+                <select class="form-select" id="adults" 
+                onchange="javascript: dynamicDropDown(this.options[this.selectedIndex].value);">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+              </select>
+            </div>
+            <div class="form-group col-lg-3 align-items-start flex-column">
+              <label for="children" class="d-inline-flex col-auto fw-bold">Bambini <span class="sublabel"> 2-11 
+              </span></label> 
+              <select class="form-select" id="children">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+              </select>
+            </div>
+            <div class="form-group col-lg-3 align-items-start flex-column">
+              <label for="infants" class="d-inline-flex col-auto fw-bold">Neonati</label> 
+              <select class="form-select" id="infants">
+                <option value="0">0</option>
+                <option value="1">1</option>
+              </select>
+            </div>
+          </div>
+          <div class="row my-4">
+            <div class="form-group col-lg-6 align-items-start flex-column">
+              <label for="cabin" class="d-inline-flex fw-bold">Cabina</label> 
+              <select class="form-select" id="cabin">
+                <option value="ECONOMY">Economy</option>
+                <option value="PREMIUM_ECONOMY">Premium Economy</option>
+                <option value="BUSINESS">Business</option>
+                <option value="FIRST">Prima classe</option>
+              </select>
+            </div>
+            <div class="form-group col-lg-6 align-items-start flex-column pt-lg-4">
+              <div class="form-check form-switch"> 
+                <input class="form-check-input align-self-center" type="checkbox" id="directFlights"> 
+                <label class="form-check-label d-inline-flex align-self-center" for="directFlights">Solo andata</label> 
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <button class="btn py-2 px-4 button_custom text-white my-3 d-block ms-auto me-4 fw-bold">Invia</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6 my-5 my-lg-0">
+      <img src="./assets/travel1.png" alt="" class="img-fluid">
+    </div>
+  </div>
+</div>
+<!-- Section Card -->
+<div class="container my-5 py-5 px-5 px-lg-0">
+  <div class="row">
+    <div class="col-12 text-center my-5">
+      <h3 class="txt_main fw-bold border_second pb-3 fs-2 font_title">Scegliere noi perchè</h3>
+    </div>
+    <div class="col-12 col-lg-6">
+      <div class="row my-5">
+        <div class="col">
+          <div data-aos="fade-right class="card mb-3 border_main " style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4 rounded-0">
+                <img src="https://static.edenviaggi.it/.imaging/default/dam/edenviaggi.it/hp/box-with-logo/400x600-offerte-last-minute.png/jcr:content.png" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title font_title fs-4 pb-3 ps-3">Card title</h5>
+                  <p class="card-text font_main">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text font_main"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div data-aos="fade-right class="card mb-3 border_main" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="https://static.edenviaggi.it/.imaging/default/dam/edenviaggi.it/hp/box-with-logo/400x600_hp_voli_e_hotel_selezionati.jpg/jcr:content.jpg" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title font_title fs-4 pb-3 ps-3">Card title</h5>
+                  <p class="card-text font_main">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text font_main"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12- col-lg-6">
+      <div class="row my-5">
+        <div class="col">
+          <div data-aos="fade-left" class="card mb-3 border_main" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="https://static.edenviaggi.it/.imaging/default/dam/edenviaggi.it/hp/box-with-logo/400x600_hp_prezzi_leggeri.jpg/jcr:content.jpg" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title font_title fs-4 pb-3 ps-3">Card title</h5>
+                  <p class="card-text font_main">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text font_main"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col"  data-aos="fade-left">
+          <div class="card mb-3 border_main" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="https://static.edenviaggi.it/.imaging/default/dam/edenviaggi.it/img/metodi-di-pagamento/scalapay/eden_scalapay_400_600.jpg/jcr:content.jpg" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title font_title fs-4 pb-3 ps-3">Card title</h5>
+                  <p class="card-text font_main">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text font_main"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+<!-- Carosello -->
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" style="background-image: url(./assets/1.jpg)">
+        <div class="carousel-caption">
+          <h5>First slide label</h5>
+          <p>Some representative placeholder content for the first slide.</p>
+        </div>
+      </div>
+      <div class="carousel-item" style="background-image: url(./assets/2.jpg)">
+        <div class="carousel-caption">
+          <h5>Second slide label</h5>
+          <p>Some representative placeholder content for the second slide.</p>
+        </div>
+      </div>
+      <div class="carousel-item" style="background-image: url(./assets/3.jpg)">
+        <div class="carousel-caption">
+          <h5>Third slide label</h5>
+          <p>Some representative placeholder content for the third slide.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <i class="bi bi-caret-left-fill fs-1 txt_second"></i>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <i class="bi bi-caret-right-fill fs-1 txt_second"></i>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+<!-- Footer -->
+<div class="container font_main">
+  <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+    <div class="col mb-3">
+      <img src="./assets/pngwing.com.png" alt="" class="img-fluid">
+    </div>
+
+    <div class="col mb-3">
+
+    </div>
+
+    <div class="col mb-3 txt_main">
+      <h5>Section</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+      </ul>
+    </div>
+
+    <div class="col mb-3 txt_main">
+      <h5>Section</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+      </ul>
+    </div>
+
+    <div class="col mb-3 txt_main">
+      <h5>Section</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+      </ul>
+    </div>
+  </footer>
+</div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+  </html>

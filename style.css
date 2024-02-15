@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root{
+--main-color: #20639b;
+--second-color:#BCD0E1;
+--therd-color: #21252B;
+}
+
+.txt_main{
+    color:var(--main-color)!important;
+}
+.txt_second{
+    color:var(--second-color)!important;
+}
+.txt_therd{
+    color: var(--therd-color)!important;
+}
+.border_main{
+    border-bottom:3px solid var(--main-color) !important;
+    border-top: none!important;
+    border-left: none!important;
+    border-right: none!important;
+}
+.border_second{
+    border-bottom:3px solid var(--second-color)!important ;
+}
+.border_therd{
+    border-bottom:3px solid var(--therd-color)!important ;
+}
+.font_main{
+    font-family: "Fredoka", sans-serif!important;
+}
+.font_title{
+    font-family: "Nunito", sans-serif!important;
+}
+.button_hover{
+    position: relative;
+    overflow: hidden;
+}
+.button_hover:hover::before{
+    position: absolute;
+    transition: 0,5s;
+    content: "";
+    background-color: var(--second-color);
+    width: 100%;
+    height: 8%;
+    bottom: 0%;
+    left: 0%;
+}
+.ico-hover{
+    transition: 200ms;
+}
+.ico-hover:hover{
+    transform: scale(1.5);
+}
+.button_custom{
+    background-color: var(--main-color)!important;
+}
+.bg_form{
+    background-image: url(./assets/pngwing.com.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+@media only screen and (max-width: 480px) {
+    .bg_form{
+        background-image: none;
+    }
+}
+.carousel-item {
+    height: 70vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+
+
+
+
+
+
+input[type="date"] { 
+    position: relative; 
+  } 
+  input[type="date"]:before { 
+    content: attr(placeholder); 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    background: #fff; 
+    color: rgba(0, 0, 0, 0.65); 
+    pointer-events: none; 
+    line-height: 1.5; 
+    padding: 10px 0.5rem 0 0.5rem; 
+  } 
+  input[type="date"]:focus:before, 
+  input[type="date"]:not([value=""]):before 
+  { 
+    display: none; 
+  } 
